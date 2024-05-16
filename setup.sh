@@ -112,12 +112,14 @@ if [ "$REMOTE_CONTAINERS" != "true" ]; then
   git config --global pull.rebase true
   git config --global alias.st status
   git config --global alias.co checkout
+  git config --global alias.sw switch
   git config --global alias.di diff
   git config --global alias.dic "diff --cached"
   git config --global alias.lo "log --graph -n 20 --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset'"
   git config --global alias.lp "log --oneline -n 20 -p"
   git config --global alias.ls "log --stat --abbrev-commit"
   git config --global alias.br branch
+  git config --global alias.fe fetch
 fi
 
 # ********************
