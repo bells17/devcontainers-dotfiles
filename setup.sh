@@ -129,7 +129,7 @@ fi
 # ** Common section **
 # ********************
 
-curl -L https://get.oh-my.fish > install.fish
-fish install.fish --noninteractive --yes
-rm install.fish
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install
+fish install --path=~/.local/share/omf --config=~/.config/omf --noninteractive --yes
+rm install
 sudo chsh --shell $(which fish) $USER
