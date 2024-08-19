@@ -11,7 +11,8 @@ setup_debian() {
   sudo apt-get -y install --no-install-recommends \
     fish \
     net-tools \
-    gnupg2
+    gnupg2 \
+    vim
 
   # Clean up
   sudo apt-get -y clean
@@ -35,7 +36,8 @@ setup_redhat() {
   sudo ${install_cmd} -y install \
     fish \
     net-tools \
-    gnupg2
+    gnupg2 \
+    vim
 
   # Setup timezone
   sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
@@ -48,7 +50,8 @@ setup_alpine() {
   sudo apk add --no-cache \
     fish \
     net-tools \
-    gnupg
+    gnupg \
+    vim
 
   # Setup timezone
   sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
