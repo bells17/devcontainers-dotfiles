@@ -110,12 +110,16 @@ else
 fi
 
 if [ "$REMOTE_CONTAINERS" != "true" ]; then
+  git config --global http.cookiefile "~/.gitcookies"
+  git config --global commit.gpgsign "true"
+  git config --global url."git://github.com/".insteadOf "https://github.com/"
   git config --global init.defaultBranch main
   git config --global core.editor vi
   git config --global color.ui auto
   git config --global push.default current
   git config --global merge.ff false
   git config --global pull.rebase true
+  # aliases
   git config --global alias.st status
   git config --global alias.co checkout
   git config --global alias.sw switch
