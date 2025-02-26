@@ -109,10 +109,12 @@ else
     echo "Running in a different environment"
 fi
 
+# For remote environments, configure gitconfig
 if [ "$REMOTE_CONTAINERS" != "true" ]; then
   git config --global http.cookiefile "~/.gitcookies"
   git config --global commit.gpgsign "true"
-  git config --global url."git://github.com/".insteadOf "https://github.com/"
+  git config --global tag.gpgsign "true"
+  git config --global url."git://github.com/".insteadOf "https://github.com/" # Settings for performing go mod download, etc. from a private repositories
   git config --global init.defaultBranch main
   git config --global core.editor vi
   git config --global color.ui auto
@@ -122,7 +124,11 @@ if [ "$REMOTE_CONTAINERS" != "true" ]; then
   # aliases
   git config --global alias.st status
   git config --global alias.co checkout
+  git config --global alias.com checkout main
+  git config --global alias.coms checkout master
   git config --global alias.sw switch
+  git config --global alias.swm switch main
+  git config --global alias.swms switch master
   git config --global alias.di diff
   git config --global alias.dic "diff --cached"
   git config --global alias.lo "log --graph -n 20 --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset'"
@@ -136,6 +142,7 @@ fi
 # ** Common section **
 # ********************
 
+# Setup fish shell & omf
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > install
 fish install --path=~/.local/share/omf --config=~/.config/omf --noninteractive --yes
 rm install
