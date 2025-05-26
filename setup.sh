@@ -112,6 +112,7 @@ fi
 # For remote environments, configure gitconfig
 if [ "$REMOTE_CONTAINERS" != "true" ]; then
   git config --global http.cookiefile "~/.gitcookies"
+  git config --global commit.signoff true
   git config --global commit.gpgsign "true"
   git config --global tag.gpgsign "true"
   git config --global url."git://github.com/".insteadOf "https://github.com/" # Settings for performing go mod download, etc. from a private repositories
@@ -121,6 +122,7 @@ if [ "$REMOTE_CONTAINERS" != "true" ]; then
   git config --global push.default current
   git config --global merge.ff false
   git config --global pull.rebase true
+  git config --global rebase.rebaseMerges true
   # aliases
   git config --global alias.st status
   git config --global alias.co checkout
