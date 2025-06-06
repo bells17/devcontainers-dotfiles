@@ -126,11 +126,11 @@ if [ "$REMOTE_CONTAINERS" != "true" ]; then
   # aliases
   git config --global alias.st status
   git config --global alias.co checkout
-  git config --global alias.com checkout main
-  git config --global alias.coms checkout master
+  git config --global alias.com "checkout main"
+  git config --global alias.coms "checkout master"
   git config --global alias.sw switch
-  git config --global alias.swm switch main
-  git config --global alias.swms switch master
+  git config --global alias.swm "switch main"
+  git config --global alias.swms "switch master"
   git config --global alias.di diff
   git config --global alias.dic "diff --cached"
   git config --global alias.lo "log --graph -n 20 --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset'"
@@ -149,3 +149,14 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 fish install --path=~/.local/share/omf --config=~/.config/omf --noninteractive --yes
 rm install
 sudo chsh --shell $(which fish) $USER
+
+# Setup fish aliases
+mkdir -p $HOME/.config/fish/conf.d
+cat > $HOME/.config/fish/conf.d/alias.fish << 'EOF'
+alias kc kubectl
+alias gi git
+alias gc gcloud
+alias tf terraform
+alias ks kustomize
+alias he helm
+EOF
